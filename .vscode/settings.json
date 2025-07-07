@@ -8,7 +8,6 @@
   "workbench.startupEditor": "newUntitledFile",
   "window.zoomLevel": 0,
   "editor.colorDecorators": false,
-  "workbench.activityBar.visible": true,
   "workbench.sideBar.location": "left",
   "liveServer.settings.donotShowInfoMsg": true,
 }
