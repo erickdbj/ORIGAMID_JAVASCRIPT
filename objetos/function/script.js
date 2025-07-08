@@ -86,4 +86,37 @@ const filtro = Array.prototype.filter.call(li, (item) => {
   return item.classList.contains('ativo');
 })
 
+const numeros = [123, 535, 2343, 533, 6];
 
+console.log(Math.max.apply(null, numeros));
+
+const li2 = document.querySelectorAll('li');
+
+function itemPossuiAtivo(item) {
+  return item.classList.contains('ativo');
+}
+
+const filtro1 = Array.prototype.filter.call(li, itemPossuiAtivo);
+const filtro2 = Array.prototype.filter.apply(li, [itemPossuiAtivo]); //Ambos funcionam da mesma maneira, mas por apply precisar que chame uma array, é só colocar dentro de uma array a função de callback
+
+const $ = document.querySelectorAll.bind(document);
+
+console.log($('li'));
+
+const carro = {
+  marca: 'Ford',
+  ano: 2018,
+  acelerar: function(aceleracao, tempo) {
+    return `${this.marca} acelerou ${aceleracao} em ${tempo}`;
+  }
+}
+
+const honda = {
+  marca: 'Honda',
+}
+
+const acelerarHonda = carro.acelerar.bind(honda, 200, 10);
+
+console.log(acelerarHonda());
+
+console.log(carro.acelerar(200, 20));
