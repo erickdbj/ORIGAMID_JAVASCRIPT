@@ -14,6 +14,21 @@ console.log(somaCaracteres);
 // Crie uma função que retorne novos elementos
 // html, com os seguintes parâmetros
 // tag, classe e conteudo.
+const sectionPrincipal = document.querySelector('section');
+
+function htmlElements() {
+  const newSection = document.createElement('section');
+
+  const h1 = document.createElement('h1');
+  const tituloh1 = document.createTextNode('Titulo para teste');
+  h1.appendChild(tituloh1);
+
+  newSection.appendChild(h1);
+
+  sectionPrincipal.insertAdjacentHTML('afterend', newSection.innerHTML);
+}
+
+htmlElements();
 
 
 // Crie uma nova função utilizando a anterior como base
