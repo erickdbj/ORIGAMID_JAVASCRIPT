@@ -1,4 +1,4 @@
-document.querySelector('body').style.background = '#000';
+document.querySelector('body').style.background = '#044';
 
 // Retorne a soma total de caracteres dos
 // parágrafos acima utilizando reduce
@@ -16,21 +16,41 @@ console.log(somaCaracteres);
 // tag, classe e conteudo.
 const sectionPrincipal = document.querySelector('section');
 
-function htmlElements() {
-  const newSection = document.createElement('section');
-
-  const h1 = document.createElement('h1');
-  const tituloh1 = document.createTextNode('Titulo para teste');
-  h1.appendChild(tituloh1);
-
-  newSection.appendChild(h1);
-
-  sectionPrincipal.insertAdjacentHTML('afterend', newSection.innerHTML);
+function htmlElements(tag, classe, texto) { //ISSO É PARAMETRO DE FUNÇAO, TAG, CLASSE, TEXTO
+  const elemento = document.createElement(tag);
+  if(classe) elemento.classList.add(classe);
+  if(texto) elemento.innerText = texto;
+  return elemento;
 }
 
-htmlElements();
+const novoElemento = htmlElements('h1', 'titulo', 'Novo Titulo');
+
+sectionPrincipal.before(novoElemento);
+
+//Funciona, mas a de cima é a mais ideal a se usar.
+
+const section = document.createElement('section');
+sectionPrincipal.after(section);
+
+function newElement(tag, classe, conteudo) {
+  return section.innerHTML = `<${tag} class="${classe}">${conteudo}</${tag}>`
+}
+
+newElement('p', 'classeTeste', 'Criando uma função que retorne novos elementos html, com os seguintes parametros: tag, classe e conteudo.');
 
 
 // Crie uma nova função utilizando a anterior como base
 // essa nova função deverá sempre criar h1 com a
 // classe titulo. Porém o parâmetro conteudo continuará dinâmico
+function newHtmlElements(conteudo) {
+  const element = document.createElement('h1');
+  element.classList.add('titulo');
+  if(conteudo) element.innerText = conteudo;
+  return element;
+}
+
+const newHtmlElement = newHtmlElements('Testando o conteudo dinamico');
+
+section.before(newHtmlElement);
+
+
