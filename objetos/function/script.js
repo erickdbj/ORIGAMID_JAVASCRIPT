@@ -42,15 +42,9 @@ newElement('p', 'classeTeste', 'Criando uma função que retorne novos elementos
 // Crie uma nova função utilizando a anterior como base
 // essa nova função deverá sempre criar h1 com a
 // classe titulo. Porém o parâmetro conteudo continuará dinâmico
-function newHtmlElements(conteudo) {
-  const element = document.createElement('h1');
-  element.classList.add('titulo');
-  if(conteudo) element.innerText = conteudo;
-  return element;
-}
+const createTitulo = htmlElements.bind(null, 'h1', 'titulo');
 
-const newHtmlElement = newHtmlElements('Testando o conteudo dinamico');
-
-section.before(newHtmlElement);
+const meuH1 = createTitulo('Conteúdo dinâmico');
+section.before(meuH1);
 
 
