@@ -57,8 +57,45 @@
 // Object.assign(moto, funcaoAutomovel);
 // Object.assign(carros, funcaoAutomovel);
 
-const moto = {
-  rodas: 2,
-}
+const moto = {}
 
-console.log(moto);
+Object.defineProperties(moto, {
+  rodas: {
+    // value: 2,
+    configurable: false, // Impede que a propriedade seja redefinida ou removida (Ja começa como sendo falso)
+    // writable: true, //Permite a alteração de valor
+    enumerable: true,
+    get() {
+      return this._rodas;
+    },
+    set(valor) {
+      this._rodas = valor * 4;
+    },
+  }
+});
+
+moto.rodas = 5; //Faz o set, como se fosse set(5);
+
+console.log(moto.rodas); //Faz o get
+
+console.log(Object.getOwnPropertyDescriptors(Array)); //Pegar info de todos os metodos e propriedades do objeto
+console.log(Object.getOwnPropertyDescriptor(Array, 'from')); //Pegar de apenas um metodo ou propriedade
+
+const innerHeightConfig = Object.getOwnPropertyDescriptor(window, 'innerHeight');
+
+console.log(Object.getOwnPropertyNames(Array));
+
+const frutas = ['Banana'];
+
+console.log(Object.getPrototypeOf(frutas)); //É a mesma coisa (Me da o prototipo do construtor de array)
+console.log(Object.getPrototypeOf('')); //Me da o prototipo do construtor de string
+console.log(Array.prototype); //É a mesma coisa
+
+const frutas1 = ['Banana', 'Pera'];
+const frutas2 = ['Banana', 'Pera'];
+
+const novaFruta = frutas1; //Apenas referencia frutas1
+
+novaFruta[0] = 'Uva'; //Altera em frutas1 tbm
+
+console.log(Object.is(frutas1, novaFruta));
