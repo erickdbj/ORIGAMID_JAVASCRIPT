@@ -1,10 +1,10 @@
-const div = document.querySelector('[data-cor]');
+const div = document.querySelector('div');
 
 div.dataset.height = 1000;
 
 // delete div.dataset.width;
 
-console.log(div.dataset.cor);
+// console.log(div.dataset);
 
 // Adicione um atributo data-anime="show-down" e
 // data-anime="show-right" a todos as section's

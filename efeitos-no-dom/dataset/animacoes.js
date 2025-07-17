@@ -2,15 +2,29 @@ function initTabNav() {
   const tabMenu = document.querySelectorAll(".js-tabmenu li");
   const tabContent = document.querySelectorAll(".js-tabcontent section");
 
+  tabContent.forEach((item) => {
+    console.log(item.getAttribute('[data-anime^="show"]'))
+  })
+
   if (tabMenu.length && tabContent.length) {
     tabContent[0].classList.add("ativo");
 
     function activeTab(index) {
       tabContent.forEach((section) => {
-        section.classList.remove("ativo");
+        section.classList.remove("[data-anime]");
       });
 
-      tabContent[index].classList.add("ativo");
+      const dataShow = tabContent[index].dataset.anime;
+
+      if(dataShow === 'show-right') {
+      tabContent[index].classList.add(dataShow);
+      } else if (dataShow === 'show-down') {
+        tabContent[index].classList.add(dataShow);
+      } else {
+        console.log('O atributo nao existe');
+      }
+
+      console.log(tabContent[index]);
     }
 
     tabMenu.forEach((itemMenu, index) => {
