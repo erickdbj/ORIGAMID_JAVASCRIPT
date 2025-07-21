@@ -2,14 +2,12 @@ import scrollSuave from "./modules/scrollSuave.js";
 import animaScroll from "./modules/animaScroll.js";
 import initAccordion from "./modules/accordion.js";
 import initTabNav from "./modules/tabnav.js";
-import * as teste from "./modules/teste.js";
-
-teste.teste1();
-teste.teste2();
-console.log(teste.nome);
-console.log(teste.obj.oi);
+import initModal from "./modules/modal.js";
+import initTooltip from "./modules/tooltip.js";
 
 scrollSuave();
 animaScroll();
 initAccordion();
 initTabNav();
+initModal();
+initTooltip();
