@@ -4,7 +4,6 @@ export default function dropDownMenu() {
   const dropownMenus = document.querySelectorAll("[data-dropdown]");
 
   dropownMenus.forEach((menu) => {
-    menu.addEventListener("touchstart", handleClick);
     ["touchstart", "click"].forEach((action) => {
       //Dessa maneira, os dois eventos sao adicionados na chamada do evento
       menu.addEventListener(action, handleClick);
@@ -14,7 +13,7 @@ export default function dropDownMenu() {
   function handleClick(event) {
     event.preventDefault();
     this.classList.add("active");
-    outsideClick(this, () => {
+    outsideClick(this, ["touchstart", "click"], () => {
       this.classList.remove("active");
     });
   }
