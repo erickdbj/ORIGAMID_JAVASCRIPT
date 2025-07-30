@@ -1,16 +1,38 @@
-function espera(texto) {
-  console.log(texto);
+// Mude a cor da tela para azul e depois para vermelho a cada 2s.
+// function mudarClasse() {
+//   document.body.classList.toggle("active");
+// }
+
+// setInterval(() => {
+//   mudarClasse();
+// }, 2000);
+
+// Crie um cronometro utilizando o setInterval. Deve ser possível
+// iniciar, pausar e resetar (duplo clique no pausar).
+const iniciar = document.querySelector('.iniciar');
+const pausar = document.querySelector('.pausar');
+const tempo = document.querySelector('.tempo');
+
+iniciar.addEventListener('click', iniciarTempo)
+pausar.addEventListener('click', pausarTempo)
+pausar.addEventListener('dblclick', resetarTempo)
+
+let i = 0;
+let timer;
+
+function iniciarTempo() {
+  timer = setInterval(() => {
+    tempo.innerText = i++;
+  }, 100);
+  iniciar.setAttribute('disabled', '');
 }
 
-setTimeout(espera, 1000, "Passou 1s");
+function pausarTempo() {
+  clearInterval(timer);
+  iniciar.removeAttribute('disabled');
+}
 
-const body = document.body;
-body.style.background = "blue";
-
-setInterval(() => {
-  body.style.background = "red";
-}, 2000);
-
-if (body.style.background !== "blue") {
-  clearInterval(fundoVermelho);  
+function resetarTempo() {
+  tempo.innerText = 0;
+  i = 0;
 }
