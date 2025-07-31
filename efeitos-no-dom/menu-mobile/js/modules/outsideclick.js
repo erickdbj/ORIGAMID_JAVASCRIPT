@@ -4,9 +4,7 @@ export default function outsideClick(element, events, callback) {
 
   if (!element.hasAttribute(outside)) {
     events.forEach((userEvent) => {
-      setTimeout(() => {
-        hmtl.addEventListener(userEvent, handleOutsideClick);
-      }, 0);
+      hmtl.addEventListener(userEvent, handleOutsideClick);
     });
     element.setAttribute(outside, "");
   }
@@ -18,8 +16,10 @@ export default function outsideClick(element, events, callback) {
       events.forEach((userEvent) => {
         hmtl.removeEventListener(userEvent, handleOutsideClick);
       });
-
+      
       callback();
     }
   }
 }
+
+
