@@ -40,10 +40,28 @@ function handleChange(event) {
   const value = event.target.value;
 
   handleStyle[name](value);
-  console.log(name, value);
+  saveValues(name, value);
+  showCss();
+  // console.log(name, value);
 }
 
 controles.addEventListener('change', handleChange);
+
+function saveValues(nome, value) {
+  localStorage[nome] = value;
+}
+
+function setValues() {
+  const properties = Object.keys(localStorage); //Retorna uma array de tudo que esta salvo em keys no localstorage
+  properties.forEach((propertie) => {
+    handleStyle[propertie](localStorage[propertie]);
+    controles.elements[propertie] = localStorage[propertie];//Mesma coisa que: controles.elements.propertie, ex: controles.elements.backgroundColor
+  })
+  showCss();
+  // console.log(properties);
+}
+
+setValues();
 
 function showCss() {
   cssText.innerHTML = '<span>' + btn.style.cssText.split('; ').join(';</span><span>');
