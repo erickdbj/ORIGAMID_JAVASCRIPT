@@ -1,0 +1,57 @@
+body {
+  background-color: #d3d3d3;
+}
+
+.cep-input {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  max-width: 170px;
+}
+
+.cep-input .input-button {
+  display: flex;
+  gap: .5rem;
+}
+
+.cep-input .input-button button {
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cep-input .input-button button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+input {
+  border-radius: 5px;
+  border: none; 
+  outline: none;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: monospace;
+  font-size: 32px;
+}
+
+.cep-geral {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  gap: 1rem;
+}
+
+.endereco {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+
+.endereco h2 {
+  margin: 0;
+  padding: 0;
+}
