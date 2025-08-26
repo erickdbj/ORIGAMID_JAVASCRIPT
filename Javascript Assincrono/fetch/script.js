@@ -8,7 +8,6 @@ botaoBuscar.addEventListener('click', handleBuscar);
 
 function handleBuscar() {
   const cepInput = inputCep.value;
-  console.log(inputCep.value)
   return cepInput;
 }
 
@@ -21,7 +20,7 @@ cepReturn
 })
 .then((body) => {
   const array = [body.bairro, body.logradouro, body.localidade, body.uf];
-    console.log(array);
+  console.log(array);
 })
 
 // Utilizando a API https://blockchain.info/ticker
