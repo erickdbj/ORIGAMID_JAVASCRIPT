@@ -5,14 +5,16 @@ const botaoBuscar = document.querySelector('#buscar');
 const inputCep = document.querySelector('.input-cep');
 
 botaoBuscar.addEventListener('click', handleBuscar);
+botaoBuscar.addEventListener('click', fetchGeral);
 
 function handleBuscar() {
   const cepInput = inputCep.value;
   return cepInput;
 }
 
-const cep = handleBuscar();
-const cepReturn = fetch(`https://viacep.com.br/ws/${cep}/json/`);
+function fetchGeral() {
+  const cep = handleBuscar();
+  const cepReturn = fetch(`https://viacep.com.br/ws/${cep}/json/`);
 
 cepReturn
 .then((r) => {
@@ -22,6 +24,7 @@ cepReturn
   const array = [body.bairro, body.logradouro, body.localidade, body.uf];
   console.log(array);
 })
+}
 
 // Utilizando a API https://blockchain.info/ticker
 // retorne no DOM o valor de compra da bitcoin and reais.
