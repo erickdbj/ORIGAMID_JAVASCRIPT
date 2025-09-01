@@ -51,7 +51,15 @@ h1 {
   gap: .5rem;
 }
 
-.endereco h2 {
+.endereco h2,
+.endereco p {
   margin: 0;
   padding: 0;
+}
+
+.bitcoin-text {
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffff00;
 }
